@@ -1,1 +1,1 @@
-# vertx-devoxxus-2017
+docker run -it -p 8000:8000 shop
