@@ -1,7 +1,3 @@
-vertx-cluster:
-  hostname: cluster
-  image: vertx/vertx3-exec
-  command: bare
 vertx-inst1:
  image: products
  hostname: products
