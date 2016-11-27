@@ -11,8 +11,9 @@ import java.net.UnknownHostException;
  */
 public class Starter {
     public static void main(String[] args) throws UnknownHostException {
-        String dockerIp = InetAddress.getByName("shop").getHostAddress();
+        String dockerIp = InetAddress.getLocalHost().getHostAddress();
         VertxOptions options = new VertxOptions();
+        System.out.println("Bind to "+dockerIp);
         options.setClusterHost(dockerIp);
         Vertx.clusteredVertx(options, result -> {
             Vertx vertx = result.result();
