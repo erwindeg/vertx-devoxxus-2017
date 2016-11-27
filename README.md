@@ -1,3 +1,6 @@
+#In all cluster.xml files, replace Erwins-MBP.home with you machines hostname (TODO: only 1 cluster.xml)
+<property name="zookeeper_url">Erwins-MBP.home:2181</property>
+
 #Building (builds docker images)
 mvn clean install
 
