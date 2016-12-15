@@ -14,3 +14,7 @@ docker run -it -p 8000:8000 shop
 
 #Or with docker compose
 docker-compose up
+
+
+#start openshift locally with docker
+oc cluster up --image=registry.access.redhat.com/openshift3/ose --create-machine
