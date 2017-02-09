@@ -20,7 +20,7 @@
                           Default: There is no default, this is a required property.
                           Example: 127.0.0.1:2181
                         -->
-                        <property name="zookeeper_url">Erwins-MBP.home:2181</property>
+                        <property name="zookeeper_url">172.17.0.1:2181</property>
                         <!--Path in ZooKeeper Hazelcast will useDefault: /discovery/hazelcast-->
                           <property name="zookeeper_path">/discovery/hazelcast</property>
                         <!--Name of this Hazelcast cluster. You can have multiple distinct clusters to use the same ZooKeeper installation.-->

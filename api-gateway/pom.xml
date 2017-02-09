@@ -12,7 +12,7 @@
 
 
     <groupId>nl.edegier</groupId>
-    <artifactId>products</artifactId>
+    <artifactId>api-gateway</artifactId>
     <version>1.0</version>
 
     <properties>
@@ -66,35 +66,35 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--
             <plugin>
-            <groupId>com.spotify</groupId>
-            <artifactId>docker-maven-plugin</artifactId>
-            <version>0.4.13</version>
-            <executions>
-                <execution>
-                    <id>docker</id>
-                    <phase>install</phase>
-                    <goals>
-                        <goal>build</goal>
-                    </goals>
-                </execution>
-            </executions>
-            <configuration>
-                <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                <!-- Configure the image name -->
-                <imageName>products</imageName>
-                <resources>
-                    <resource>
-                        <targetPath>target</targetPath>
-                        <directory>${project.build.directory}</directory>
-                        <includes>
-                            <include>${project.artifactId}-${project.version}-fat.jar</include>
-                        </includes>
-                    </resource>
-                    <!-- don't forget to also add all the dependencies required by your application -->
-                </resources>
-            </configuration>
-        </plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <executions>
+                    <execution>
+                        <id>docker</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <imageName>api-gateway</imageName>
+                    <resources>
+                        <resource>
+                            <targetPath>target</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <includes>
+                                <include>${project.artifactId}-${project.version}-fat.jar</include>
+                            </includes>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+    -->
         </plugins>
     </build>
 </project>

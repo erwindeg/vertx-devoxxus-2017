@@ -12,12 +12,30 @@
 
 
     <groupId>nl.edegier</groupId>
-    <artifactId>products</artifactId>
+    <artifactId>service-discovery</artifactId>
     <version>1.0</version>
 
     <properties>
         <exec.mainClass>nl.edegier.products.Starter</exec.mainClass>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web-client</artifactId>
+            <version>3.4.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>nl.edegier</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-service-discovery</artifactId>
+            <version>3.3.3</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
@@ -66,35 +84,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-            <groupId>com.spotify</groupId>
-            <artifactId>docker-maven-plugin</artifactId>
-            <version>0.4.13</version>
-            <executions>
-                <execution>
-                    <id>docker</id>
-                    <phase>install</phase>
-                    <goals>
-                        <goal>build</goal>
-                    </goals>
-                </execution>
-            </executions>
-            <configuration>
-                <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                <!-- Configure the image name -->
-                <imageName>products</imageName>
-                <resources>
-                    <resource>
-                        <targetPath>target</targetPath>
-                        <directory>${project.build.directory}</directory>
-                        <includes>
-                            <include>${project.artifactId}-${project.version}-fat.jar</include>
-                        </includes>
-                    </resource>
-                    <!-- don't forget to also add all the dependencies required by your application -->
-                </resources>
-            </configuration>
-        </plugin>
+
         </plugins>
     </build>
 </project>

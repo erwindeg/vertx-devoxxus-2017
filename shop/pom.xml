@@ -72,7 +72,7 @@
             <executions>
                 <execution>
                     <id>docker</id>
-                    <phase>package</phase>
+                    <phase>install</phase>
                     <goals>
                         <goal>build</goal>
                     </goals>

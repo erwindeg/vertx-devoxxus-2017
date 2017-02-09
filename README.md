@@ -18,3 +18,9 @@ docker-compose up
 
 #start openshift locally with docker
 oc cluster up --image=registry.access.redhat.com/openshift3/ose --create-machine
+
+docker-machine start openshift
+docker-machine stop openshift
+
+#remove openshift
+docker-machine rm -f openshift
