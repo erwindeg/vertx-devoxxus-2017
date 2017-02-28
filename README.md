@@ -23,6 +23,7 @@ oc cluster up --image=registry.access.redhat.com/openshift3/ose --create-machine
 oc adm policy add-cluster-role-to-user cluster-admin developer
 
 docker-machine start openshift
+
 docker-machine stop openshift
 
 #remove openshift
