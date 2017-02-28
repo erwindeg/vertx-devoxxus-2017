@@ -20,6 +20,7 @@ public class WebClientVerticle extends AbstractVerticle {
     public void start() throws Exception {
         WebClient client = WebClient.create(vertx);
         get(client);
+        getQueryParam(client);
         post(client);
     }
 
@@ -28,12 +29,20 @@ public class WebClientVerticle extends AbstractVerticle {
                 .get(80, "jsonplaceholder.typicode.com", "")
                 .send(result -> {
                     if (result.succeeded()) {
-                        System.out.println(result.result().statusCode());
+                        System.out.println("GET result: "+result.result().statusCode());
                     } else {
                         result.cause().printStackTrace();
                     }
                 });
     }
+
+    private void getQueryParam(WebClient client) {
+        client
+                .get(80, "jsonplaceholder.typicode.com", "").addQueryParam("param1","vertx").addQueryParam("param2","vertx")
+                .queryParams().forEach(System.out::println);
+    }
+
+
 
     private void getHandleBody(WebClient client){
 //        client
@@ -46,7 +55,7 @@ public class WebClientVerticle extends AbstractVerticle {
                 .post(80, "jsonplaceholder.typicode.com", "/posts")
                 .sendJsonObject(new JsonObject().put("title", "test").put("body", "bodytest").put("userId", 123), result -> {
                     if (result.succeeded()) {
-                        System.out.println(result.result().statusCode());
+                        System.out.println("GET result :"+result.result().statusCode());
                     } else {
                         result.cause().printStackTrace();
                     }

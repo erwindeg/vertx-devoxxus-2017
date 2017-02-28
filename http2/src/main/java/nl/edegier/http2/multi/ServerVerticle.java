@@ -41,7 +41,7 @@ public class ServerVerticle extends AbstractVerticle {
                 new HttpServerOptions()
                         .setSsl(true)
                         //Set to true to enable HTTP/2
-                        .setUseAlpn(true)
+                        .setUseAlpn(false)
                         .setPemKeyCertOptions(new PemKeyCertOptions().setKeyPath("server-key.pem").setCertPath("server-cert.pem"))).requestHandler(router::accept);
 
 

@@ -16,7 +16,7 @@
     <version>1.0</version>
 
     <properties>
-        <exec.mainClass>nl.edegier.products.Starter</exec.mainClass>
+        <exec.mainClass>nl.edegier.apigateway.Starter</exec.mainClass>
     </properties>
 
     <build>

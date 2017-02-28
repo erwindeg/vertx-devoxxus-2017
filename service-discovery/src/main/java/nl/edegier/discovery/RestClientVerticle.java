@@ -1,6 +1,7 @@
 package nl.edegier.discovery;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpClient;
 import io.vertx.core.http.HttpClientRequest;
 import io.vertx.servicediscovery.ServiceDiscovery;
@@ -11,6 +12,10 @@ import io.vertx.servicediscovery.ServiceReference;
  */
 public class RestClientVerticle extends AbstractVerticle {
 
+    public static void main(String[] args) {
+        Vertx.vertx().deployVerticle(new RestClientVerticle());
+    }
+
     @Override
     public void start() throws Exception {
 
@@ -20,6 +25,7 @@ public class RestClientVerticle extends AbstractVerticle {
             if (ar.succeeded()) {
                 if (ar.result() != null) {
                     ServiceReference reference = discovery.getReference(ar.result());
+                    System.out.println("Service found");
                     HttpClient client = reference.get();
                     invokeClient(client);
                 } else {

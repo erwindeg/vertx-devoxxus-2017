@@ -19,5 +19,6 @@ public class Starter {
             Vertx vertx = result.result();
             vertx.deployVerticle(new ShopVerticle());
         });
+
     }
 }

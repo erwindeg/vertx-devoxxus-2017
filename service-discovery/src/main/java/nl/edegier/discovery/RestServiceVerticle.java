@@ -1,6 +1,7 @@
 package nl.edegier.discovery;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServer;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
@@ -13,6 +14,10 @@ import io.vertx.servicediscovery.types.HttpEndpoint;
  */
 public class RestServiceVerticle extends AbstractVerticle{
 
+    public static void main(String[] args) {
+        Vertx.vertx().deployVerticle(new RestServiceVerticle());
+    }
+
     @Override
     public void start() throws Exception {
         HttpServer server = vertx.createHttpServer();
@@ -23,13 +28,6 @@ public class RestServiceVerticle extends AbstractVerticle{
 
         ServiceDiscovery discovery = ServiceDiscovery.create(vertx);
 
-// Customize the configuration
-//        discovery = ServiceDiscovery.create(vertx,
-//                new ServiceDiscoveryOptions()
-//                        .setAnnounceAddress("service-announce")
-//                        .setName("my-name"));
-
-// Do something...
         Record record = HttpEndpoint.createRecord("example-rest-api", "localhost", 8080, "/api");
         discovery.publish(record, ar -> {
             if (ar.succeeded()) {
