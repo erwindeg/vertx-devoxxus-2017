@@ -57,7 +57,7 @@ public class CircuitBreakerVerticle extends AbstractVerticle {
             if (ar.succeeded()) {
                 routingContext.response().end(ar.result().toString());
             } else {
-                routingContext.response().setStatusCode(500).end();
+                routingContext.response().setStatusCode(500).end("hello verticle unavailable ");
             }
         });
     }

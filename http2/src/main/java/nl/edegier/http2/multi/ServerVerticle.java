@@ -36,24 +36,15 @@ public class ServerVerticle extends AbstractVerticle {
                     "<p>version = " + ctx.request().version() + "</p>" +
                     "</body></html>");
         });
-//
+
         HttpServer server =  vertx.createHttpServer(
                 new HttpServerOptions()
                         .setSsl(true)
                         //Set to true to enable HTTP/2
-                        .setUseAlpn(false)
+                        .setUseAlpn(true)
                         .setPemKeyCertOptions(new PemKeyCertOptions().setKeyPath("server-key.pem").setCertPath("server-cert.pem"))).requestHandler(router::accept);
 
 
-//        HttpServer server =
-//                vertx.createHttpServer(new HttpServerOptions());
-//
-//        server.requestHandler(req -> {
-//            req.response().putHeader("content-type", "text/html").end("<html><body>" +
-//                    "<h1>Hello from vert.x!</h1>" +
-//                    "<p>version = " + req.version() + "</p>" +
-//                    "</body></html>");
-//        })
             server.listen(8443);
     }
 }

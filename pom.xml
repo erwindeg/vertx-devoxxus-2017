@@ -18,8 +18,8 @@
         <module>webclient</module>
     </modules>
     <properties>
-        <!--<vertx-version>3.3.3</vertx-version>-->
-        <vertx-version>3.4.0-SNAPSHOT</vertx-version>
+        <vertx-version>3.3.3</vertx-version>
+        <!--<vertx-version>3.4.0-SNAPSHOT</vertx-version>-->
     </properties>
 
     <dependencies>

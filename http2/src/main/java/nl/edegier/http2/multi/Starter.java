@@ -10,6 +10,5 @@ import java.net.UnknownHostException;
 public class Starter {
     public static void main(String[] args) throws UnknownHostException {
         Vertx.vertx().deployVerticle(new ServerVerticle());
-//        Vertx.vertx().deployVerticle(new ClientVerticle());
     }
 }
